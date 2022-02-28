@@ -125,6 +125,7 @@ main {
 /* 게시판. */
 .content_page {
   width: inherit;
+  min-width: 900px;
   display: flex;
   flex-direction: column;
 }
@@ -173,7 +174,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .item {
