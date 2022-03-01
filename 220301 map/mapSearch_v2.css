@@ -15,6 +15,7 @@
   header{
    height: 100px;
    width: 80%;
+   min-width: 1000px;
    margin: 15px auto;
    display: flex;
    justify-content: space-between;
@@ -60,6 +61,7 @@
    padding-left: 10px;
    line-height: 35px;
    font-size: 16px;
+   background-color: #e5d0b5;
   }
   
   /* *{outline: 1px red solid;} */
@@ -71,8 +73,10 @@
   main {
    height: 1400px;
    width: 90%;
+   min-width: 1000px;
    margin: auto;
    margin-top: 100px;
+
    display: flex;
   }
   
@@ -102,7 +106,8 @@
    font-size: 25pt;
    font-weight: bold;
   }
-  
+
+  /* 지도 화면의 경우 게시판이 맨아래에 있어 글쓰기 버튼도 하단으로 내릴 필요가 있어 보임   */
   .order_wrapper{
    width: 250px;
    margin-top: 12px;
@@ -176,10 +181,12 @@
   
   /* 지도 */
   #mapDisplay{
-   outline: black 1px solid;
-   margin: 20px 20px 0 20px;
-   height: 20%;
+   height: 40%;
+
+   border: black 1px solid;
    border-radius: 5px;
+   margin: 20px 20px 0 20px;
+
   }
   
   
@@ -253,13 +260,14 @@
   }
   
   #post_search_btn {
+   width: 40px;
    margin-left: 5px;
-   color: white;
-   background-color: black;
+   background-color: #e5d0b5;
   }
   
   /* 최하단 */
   footer{
+   min-width: 1000px;
    border-top: 1px solid darkgreen;
   }
   
