@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+    <!-- css파일을 여러 개 적용할 때 위에서 아래 순서상 늦게 적용된 css의 우선순위가 높다 -->
+    <!-- <link rel="stylesheet" href="map.css"> -->
     <link rel="stylesheet" href="mapSearch_v2.css">
-    <title>클래스찾기 화면_2차수정_Grid게시판</title>
+    <!-- 구글 폰트 Jua 적용  -->
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <title>클래스찾기 화면_2차수정_Grid게시판</title>
+    
+    <!-- 네이버, 카카오 지도 API  -->
+    <script type="text/javascript" 
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=0y3jm6bdzz"></script>
+      <script type="text/javascript" 
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=38d6ce372c141979c2b8c65e59778eb3&libraries=services">
+    </script>
 </head>
 
 <body>
@@ -45,7 +54,8 @@
     <!-- 검색창 -->
     <div class="container_search">
         <div class="search">
-            <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
+            <input class="search textbox" type="text">
+             <!-- placeholder="검색어를 입력하세요."> -->
             <button class="search button">검색</button>
         </div>
     </div>
@@ -127,7 +137,15 @@
             
             <!-- 본문 지도 불러오기 창-->
             <div id="mapDisplay">
-                
+                <!-- <div id="info">지도앱</div>
+                <div id="myposition">내위치</div>
+                <div id="keywordSearch">
+                    <div class="inner-keyword-search">
+                        <input type="text" id="keyword">
+                        <button id="searchBtn">검색</button>
+                    </div>
+                </div> -->
+                <div id="map"></div>
             </div>
             
             <!-- 지도 아래 게시판 -->
@@ -200,6 +218,15 @@
                         <div class="col last">552</div>
                     </div>
                 </div>
+
+                <!-- 페이징 -->
+                <!-- <div class="boardPaging">
+                    <div class="pageNo_wrap">
+                        <span class="pageNo">1</span>
+                        <span class="pageNo">2</span>
+                        <span class="pageNo">3</span>
+                    </div>
+                </div> -->
             </div>
 
 
@@ -234,6 +261,8 @@
         </ul>
     </footer>
 
+    <script src="mapJS.js" defer></script>
+    
 </body>
 
 </html>
