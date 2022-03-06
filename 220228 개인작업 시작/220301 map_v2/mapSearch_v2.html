@@ -8,9 +8,11 @@
     <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
     <!-- css파일을 여러 개 적용할 때 위에서 아래 순서상 늦게 적용된 css의 우선순위가 높다 -->
     <!-- <link rel="stylesheet" href="map.css"> -->
+    <link rel="stylesheet" href="cityAjax.css">
     <link rel="stylesheet" href="mapSearch_v2.css">
     <!-- 구글 폰트 Jua 적용  -->
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script defer src="/220228 개인작업 시작/220301 map_v2/cityAjax.js"></script>
     <title>클래스찾기 화면_2차수정_Grid게시판</title>
     
     <!-- 네이버, 카카오 지도 API  -->
@@ -82,56 +84,46 @@
             <!-- 본문 -->
             <!-- 지역 선택창 -->
             <div class="locationBox">
-
                 <div id="metroBox">
-                        <div>전체</div>
-
+                        <div><span id="Korea">전체</span></div>
+                        
                         <div class="metroRow">
-                            <span>서울</span>
-                            <span>부산</span>
+                            <span id="Seoul">서울</span>
+                            <span id="Busan">부산</span>
                         </div>
                         <div class="metroRow">
-                            <span>대구</span>
-                            <span>인천</span>
+                            <span id="Daegu">대구</span>
+                            <span id="Incheon">인천</span>
                         </div>
                         <di class="metroRow"> 
-                            <span>광주</span>
-                            <span>대전</span>
+                            <span id="Gwangju">광주</span>
+                            <span id="Dajeon">대전</span>
                         </di>
                         <div class="metroRow">
-                            <span id="example">울산</span>
-                            <span>세종</span>
+                            <span id="Ulsan">울산</span>
+                            <span id="Sejong">세종</span>
                         </div>
                         <div class="metroRow">
-                            <span>경기</span>
-                            <span>강원</span>
+                            <span id="Gyeonggi">경기</span>
+                            <span id="Gangwon">강원</span>
                         </div>
                         <div class="metroRow">
-                            <span>충북</span>
-                            <span>충남</span>
+                            <span id="Chungbuk">충북</span>
+                            <span id="Chungnam">충남</span>
                         </div>
                         <div class="metroRow">
-                            <span>전북</span>
-                            <span>전남</span>
+                            <span id="Jeonbuk">전북</span>
+                            <span id="Jeonnam">전남</span>
                         </div>
                         <div class="metroRow">
-                            <span>경북</span>
-                            <span>경남</span>
+                            <span id="Gyeongbuk">경북</span>
+                            <span id="Gyeongnam">경남</span>
                         </div>
-                        <div>제주</div>
+                        <div><span id="Jeju">제주</span></div>
                 </div>
 
                 <div id="cityBox">
-                    <div class="cityRow">
-                        <span><input type="checkbox"> 전체</span>
-                        <span><input type="checkbox" checked> 울산 남구</span>
-                        <span><input type="checkbox"> 울산 동구</span>
-                    </div>
-                    <div class="cityRow">
-                        <span><input type="checkbox"> 울산 북구</span>
-                        <span><input type="checkbox"> 울산 울주군</span>
-                        <span><input type="checkbox"> 울산 중구</span>
-                    </div>
+                    <!-- 군/구 체크박스가 출력될 자리 -->
                 </div>
             </div>
             

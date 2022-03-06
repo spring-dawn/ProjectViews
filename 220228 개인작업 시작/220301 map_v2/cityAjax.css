@@ -1,0 +1,12 @@
+        .sub_cities{
+            width: inherit;
+        }
+
+        .cities{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .cities > span{
+            margin-bottom: 10px;
+            width: 30%;
+        }

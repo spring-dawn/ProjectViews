@@ -156,9 +156,6 @@
   .metroRow > span{
    width: 50%;
   }
-  #example{
-   color: #f37335;
-  }
   
   /* 구 선택 */
   #cityBox{
@@ -166,9 +163,11 @@
   padding: 10px;
 	width: 80%;
 	font-size: 18px;
+
+  overflow: scroll;
   }
-  
-  .cityRow{
+
+  /* .cityRow{
    display: flex;
    justify-content: space-evenly;
   }
@@ -176,7 +175,7 @@
   .cityRow > span{
    margin-bottom: 10px;
    width: 30%;
-  }
+  } */
   
   
   /* 지도 */
