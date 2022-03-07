@@ -167,6 +167,20 @@
   overflow: scroll;
   }
 
+  .sub_cities{
+    width: inherit;
+    text-align: center;
+}
+
+.cities{
+    display: flex;
+    justify-content: space-evenly;
+}
+.cities > span{
+    margin-bottom: 10px;
+    width: 30%;
+}
+
   /* .cityRow{
    display: flex;
    justify-content: space-evenly;

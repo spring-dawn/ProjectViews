@@ -29,7 +29,7 @@ const $Gyeongnam = document.getElementById('Gyeongnam');
 
 const $Jeju = document.getElementById('Jeju');
 
-// 각 타겟에 리스너 달기; 버튼으로 만들었음 리스너만 달았을 텐데 일을 두 번 하네; 
+// 각 타겟에 리스너 달기; 버튼으로 만들었음 리스너만 달았을 텐데 일을 두 번 하네; 역시 반복문 돌려야만
 $Korea.addEventListener('click', subCities_f);
 $Seoul.addEventListener('click', subCities_f);
 $Sejong.addEventListener('click', subCities_f);
@@ -57,13 +57,13 @@ $Incheon.addEventListener('click', subCities_f);
             let html = '';
             // this는 자기자신. 선택된 체크박스 자신을 this로 받는다.
             html += `<div class='cities'>`;
-            html += `<span>전체<input type="checkbox" name='all' onclick='chkAll_f(this)'></span>`;
-            html += `<span>울산 남구<input type="checkbox"></span>`;
-            html += `<span>울산 동구<input type="checkbox"></span>`;
+            html += `<span><input type="checkbox" name='all' onclick='chkAll_f(this)'>전체</span>`;
+            html += `<span><input type="checkbox">울산 남구</span>`;
+            html += `<span><input type="checkbox">울산 동구</span>`;
             html += `</div><div class='cities'>`;
-            html += `<span>울산 북구<input type="checkbox"></span>`;
-            html += `<span>울산 울주군<input type="checkbox"></span>`;
-            html += `<span>울산 중구<input type="checkbox"></span>`;
+            html += `<span><input type="checkbox">울산 북구</span>`;
+            html += `<span><input type="checkbox">울산 울주군</span>`;
+            html += `<span><input type="checkbox">울산 중구</span>`;
             html += `</div>`;
 
             cityBox.innerHTML = html;
