@@ -164,38 +164,13 @@
     font-size: 18px;
 
     overflow: scroll;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
    }
    /* 시군구 선택 */
-   
 
-
-
-
-
-
-   /* .sub_cities{
-     width: inherit;
-     text-align: center;
- }
- 
- .cities{
-     display: flex;
-     justify-content: space-evenly;
- }
- .cities > span{
-     margin-bottom: 10px;
-     width: 30%;
- } */
- 
-   /* .cityRow{
-    display: flex;
-    justify-content: space-evenly;
-   }
-   
-   .cityRow > span{
-    margin-bottom: 10px;
-    width: 30%;
-   } */
    
    
    /* 지도 */

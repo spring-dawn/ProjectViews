@@ -352,9 +352,9 @@ const data = {
      ele.addEventListener('click', super_f);
  });
 
-// 대한민국 범위를 포함한 상위 도시 선택을 하면 옆 서브박스에 하위도시가 출력되게 한다. 
+// 대한민국 범위를 포함한 상위 도시 선택을 하면 옆 서브박스에 하위도시가 출력되게 하는 함수.
 function super_f(e){
-    console.log(e.target.dataset.superId);
+    // console.log(e.target.dataset.superId);
     const $btnWhere = e.target.dataset.superId;
 
     const url = 'http://192.168.168.103:5500';
@@ -365,46 +365,33 @@ function super_f(e){
       .catch(err=> console.log(err));
 
 
-    // 예시로 울산 출력. data-super-id=Ulsan. dataset.[]으로 속성을 읽어올 수 있다.
+    // dataset[]으로 속성을 읽어올 수 있다.
     for(let i=0; i<=Object.keys(data).length; i++){
         if( $btnWhere === Object.keys(data)[i] ){
-           let searchingCity = Object.keys(data)[i];
-            console.log(searchingCity);
-            console.log(data[searchingCity]);
-            // if절을 빠져나가면 쓸 수 없는 변수가 돼버린다
-        }
-        let html ='';
+            let searchingCity = Object.keys(data)[i];
+            // console.log(searchingCity);
+            // console.log(data[searchingCity]);
+            let html ='';
             data[searchingCity].forEach(ele => {
+                html +=
                 `<span><input type="checkbox" class="subChk">${ele.sub}</span>`
             });
             subBox.innerHTML = html;
-
-        
-        // let html ='';
-        // const cityArray = data[searchingCity];
-        // console. log(data.cityArray);
-
-        // html +=   
-        // cityArray.forEach(ele => {
-        //     `<span><input type="checkbox" class="subChk">${cityArray.sub}</span>`
-        // });
-
-        // subBox.innerHTML = html;
-
+        }
     }
 
-    //   let html = '';
-    //   switch($btnWhere){
-    //       case 'Ulsan':
-    //         const listUlsan = data.Ulsan;
-    //         listUlsan.forEach(Ulsan => {
-    //           html +=   
-    //           `<span><input type="checkbox" class="subChk">${Ulsan.sub}</span>`
-    //         });
 
-    //         subBox.innerHTML = html;
-    //         break;
-    //   };
+    
+    // 전체 버튼 눌렀을 때의 ajax 함수
+
+
+
+    // 체크박스 제어 함수
+
+
+
+
+    
 }
 
 
