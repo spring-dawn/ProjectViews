@@ -353,10 +353,9 @@ const data = {
  });
 
 // 대한민국 범위를 포함한 상위 도시 선택을 하면 옆 서브박스에 하위도시가 출력되게 한다. 
-// 예시로 울산 출력. data-sub-id=Ulsan. dataset.[]으로 속성을 읽어올 수 있다.
-// 자고 일어나서 id를 바꿔야겠다 후...
 function super_f(e){
-    console.log(e.target.dataset.subId);
+    console.log(e.target.dataset.superId);
+    const $btnWhere = e.target.dataset.superId;
 
     const url = 'http://192.168.168.103:5500';
     fetch(url,{
@@ -365,49 +364,48 @@ function super_f(e){
       .then(res => console.log(res))
       .catch(err=> console.log(err));
 
-      let html = '';
 
-      switch(e.target.dataset.subId){
-          case 'Ulsan':
-            const listUlsan = data.Ulsan;
-
-            listUlsan.forEach(Ulsan => {
-              html +=   
-              `<span><input type="checkbox" class="subChk">${Ulsan.sub}</span>`
+    // 예시로 울산 출력. data-super-id=Ulsan. dataset.[]으로 속성을 읽어올 수 있다.
+    for(let i=0; i<=Object.keys(data).length; i++){
+        if( $btnWhere === Object.keys(data)[i] ){
+           let searchingCity = Object.keys(data)[i];
+            console.log(searchingCity);
+            console.log(data[searchingCity]);
+            // if절을 빠져나가면 쓸 수 없는 변수가 돼버린다
+        }
+        let html ='';
+            data[searchingCity].forEach(ele => {
+                `<span><input type="checkbox" class="subChk">${ele.sub}</span>`
             });
-           
             subBox.innerHTML = html;
-              
-              break;
 
-      };
-     
+        
+        // let html ='';
+        // const cityArray = data[searchingCity];
+        // console. log(data.cityArray);
 
+        // html +=   
+        // cityArray.forEach(ele => {
+        //     `<span><input type="checkbox" class="subChk">${cityArray.sub}</span>`
+        // });
+
+        // subBox.innerHTML = html;
+
+    }
+
+    //   let html = '';
+    //   switch($btnWhere){
+    //       case 'Ulsan':
+    //         const listUlsan = data.Ulsan;
+    //         listUlsan.forEach(Ulsan => {
+    //           html +=   
+    //           `<span><input type="checkbox" class="subChk">${Ulsan.sub}</span>`
+    //         });
+
+    //         subBox.innerHTML = html;
+    //         break;
+    //   };
 }
 
 
-//   function detailBtn_f(commentId){
-//     const url = `http://localhost:8080/api/comments/${commentId}`;
-//     fetch(url,{
-//       method:'GET'
-//     }).then(res=>res.json())
-//       .then(res=>{
-//         if(res.rtcd == '00'){
-//           console.log(res.data);
-//           const comment = res.data;
-//           document.getElementById('commentId').value = comment.id;
-//           document.getElementById('email').value = comment.email;
-//           document.getElementById('nickname').value = comment.nickname;
-//           document.getElementById('comment').value = comment.content;
-//           saveBtn.textContent = '수정';
-//         }else{
-//           console.log(res.rtmsg);
-//         }
-//       })
-//       .catch(err=>console.log(err));
-//   }
-    
-    
-
-  
 
