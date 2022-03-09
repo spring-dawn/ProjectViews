@@ -1,6 +1,7 @@
 
 // 하드코딩을 막기 위한 지역 json data 제작
 const data = {
+
     "Seoul": [
         { "sub": "전체" },
 
@@ -341,6 +342,9 @@ const data = {
     ]
 }
 
+// ------------------------------------------------------------------------------------
+
+
 // 일단 각 상위 지역에 리스너를 단다. 대한민국 범위에서 검색하는 전체 버튼은 1개이니 따로 리스너를 단다.
 // 전체 버튼을 클릭하면 옆 상자에 아무 것도 뜨지 않는다... 어 전체 함수는 따로 만들어야겠네.
 // allCityBtn.addEventListener('click', super_f);
@@ -357,12 +361,13 @@ function super_f(e){
     // console.log(e.target.dataset.superId);
     const $btnWhere = e.target.dataset.superId;
 
+    // url은 사용자에 따라 변경 주의
     const url = 'http://192.168.168.103:5500';
     fetch(url,{
         method:'GET',
     }).then(res => res.json())
       .then(res => console.log(res))
-      .catch(err=> console.log(err));
+      .catch(err => console.log(err));
 
 
     // dataset[]으로 속성을 읽어올 수 있다.
@@ -381,7 +386,6 @@ function super_f(e){
     }
 
 
-    
     // 전체 버튼 눌렀을 때의 ajax 함수
 
 

@@ -43,54 +43,55 @@
         }
     });
 
+    // ==================================여기까지가 기본 세팅=======================================
 
-    // 내위치
-    const $myposition = document.getElementById('myposition');
-    $myposition.addEventListener('click', myposition_f );
+    // 내위치. 사용하지 않아 일단은 주석처리
+    // const $myposition = document.getElementById('myposition');
+    // $myposition.addEventListener('click', myposition_f );
 
-    function myposition_f(e){
-      //alert('hi'+e);
-      if(window.navigator.geolocation){
-        window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
-      }else{
-        window.alert('현재 브라우저는 위치정보를 제고하지 않습니다!');
-      }
-    }
+    // function myposition_f(e){
+    //   //alert('hi'+e);
+    //   if(window.navigator.geolocation){
+    //     window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    //   }else{
+    //     window.alert('현재 브라우저는 위치정보를 제고하지 않습니다!');
+    //   }
+    // }
 
-    function onSuccess(position) {
-      const location = new naver.maps.LatLng(position.coords.latitude,
-                                          position.coords.longitude);
+    // function onSuccess(position) {
+    //   const location = new naver.maps.LatLng(position.coords.latitude,
+    //                                       position.coords.longitude);
 
-      map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
-      map.setZoom(10); // 지도의 줌 레벨을 변경합니다.
+    //   map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
+    //   map.setZoom(10); // 지도의 줌 레벨을 변경합니다.
 
-      infowindow.setContent('<div style="padding:20px;">' + 'geolocation.getCurrentPosition() 위치' + '</div>');
-      infowindow.open(map, location);
+    //   infowindow.setContent('<div style="padding:20px;">' + 'geolocation.getCurrentPosition() 위치' + '</div>');
+    //   infowindow.open(map, location);
 
-      console.log('Coordinates: ' + location.toString());
-    }
+    //   console.log('Coordinates: ' + location.toString());
+    // }
 
-    function onError(err) {
-      const center = map.getCenter();
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-      infowindow.setContent(
-        `<div style="padding:20px;">
-          <h5 style="margin-bottom:5px;color:#f00;">Geolocation failed!</h5> 
-            latitude: ${center.lat()} <br/>
-            longitude: ${center.lng()} 
-        </div>`
-      );
+    // function onError(err) {
+    //   const center = map.getCenter();
+    //   console.warn(`ERROR(${err.code}): ${err.message}`);
+    //   infowindow.setContent(
+    //     `<div style="padding:20px;">
+    //       <h5 style="margin-bottom:5px;color:#f00;">Geolocation failed!</h5> 
+    //         latitude: ${center.lat()} <br/>
+    //         longitude: ${center.lng()} 
+    //     </div>`
+    //   );
 
-      infowindow.open(map, center);
-    }
+    //   infowindow.open(map, center);
+    // }
 
+    
+    // 키워드 검색. 이 프로젝트 경우엔 지도 검색창을 쓰지 않으니 주석 처리.
+    // const $keyword = document.getElementById('keyword');
+    // const $searchBtn = document.getElementById('searchBtn');
 
-    const $keyword = document.getElementById('keyword');
-    const $searchBtn = document.getElementById('searchBtn');
-
-    $keyword.addEventListener('keydown',searchKeyword);
-    $searchBtn.addEventListener('click',searchKeyword);
-
+    // $keyword.addEventListener('keydown',searchKeyword);
+    // $searchBtn.addEventListener('click',searchKeyword);
     function searchKeyword(e){
       const tagName = e.target.tagName;
       switch(tagName){

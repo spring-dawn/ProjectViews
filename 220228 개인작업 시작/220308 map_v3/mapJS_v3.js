@@ -43,73 +43,104 @@
         }
     });
 
+    // ==================================여기까지가 기본 세팅=======================================
 
-    // 내위치
-    const $myposition = document.getElementById('myposition');
-    $myposition.addEventListener('click', myposition_f );
 
-    function myposition_f(e){
-      //alert('hi'+e);
-      if(window.navigator.geolocation){
-        window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
-      }else{
-        window.alert('현재 브라우저는 위치정보를 제고하지 않습니다!');
-      }
+    // 내위치. 사용하지 않아 일단은 주석처리
+    // const $myposition = document.getElementById('myposition');
+    // $myposition.addEventListener('click', myposition_f );
+
+    // function myposition_f(e){
+    //   //alert('hi'+e);
+    //   if(window.navigator.geolocation){
+    //     window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    //   }else{
+    //     window.alert('현재 브라우저는 위치정보를 제고하지 않습니다!');
+    //   }
+    // }
+
+    // function onSuccess(position) {
+    //   const location = new naver.maps.LatLng(position.coords.latitude,
+    //                                       position.coords.longitude);
+
+    //   map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
+    //   map.setZoom(10); // 지도의 줌 레벨을 변경합니다.
+
+    //   infowindow.setContent('<div style="padding:20px;">' + 'geolocation.getCurrentPosition() 위치' + '</div>');
+    //   infowindow.open(map, location);
+
+    //   console.log('Coordinates: ' + location.toString());
+    // }
+
+    // function onError(err) {
+    //   const center = map.getCenter();
+    //   console.warn(`ERROR(${err.code}): ${err.message}`);
+    //   infowindow.setContent(
+    //     `<div style="padding:20px;">
+    //       <h5 style="margin-bottom:5px;color:#f00;">Geolocation failed!</h5> 
+    //         latitude: ${center.lat()} <br/>
+    //         longitude: ${center.lng()} 
+    //     </div>`
+    //   );
+
+    //   infowindow.open(map, center);
+    // }
+
+    
+    // 키워드 검색. 이 프로젝트 경우엔 지도 검색창을 쓰지 않으니 input태그는 주석 처리.
+    // const $keyword = document.getElementById('keyword');
+    // const $searchBtn = document.getElementById('searchBtn');
+
+    // $keyword.addEventListener('keydown',searchKeyword);
+    // $searchBtn.addEventListener('click',searchKeyword);
+
+
+    // 1) 시군구 체크박스에 리스너를 달아 검색 함수를 실행. 체크박스 class는 'subChk', 배열 객체다.
+    // 체크박스는 '만들어지기 전엔' 존재하지 않는다. 이벤트 위입 필요.
+
+    const $chkDelegation = document.querySelector('#subBox');
+    $chkDelegation.addEventListener('change', keywordChk_f)
+
+    // 2) 체크박스 체크 여부에 따라 키워드를 문자열로 읽어낸다.
+    function keywordChk_f(e){
+      console.log('체크!');
+
+
+
     }
 
-    function onSuccess(position) {
-      const location = new naver.maps.LatLng(position.coords.latitude,
-                                          position.coords.longitude);
-
-      map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
-      map.setZoom(10); // 지도의 줌 레벨을 변경합니다.
-
-      infowindow.setContent('<div style="padding:20px;">' + 'geolocation.getCurrentPosition() 위치' + '</div>');
-      infowindow.open(map, location);
-
-      console.log('Coordinates: ' + location.toString());
-    }
-
-    function onError(err) {
-      const center = map.getCenter();
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-      infowindow.setContent(
-        `<div style="padding:20px;">
-          <h5 style="margin-bottom:5px;color:#f00;">Geolocation failed!</h5> 
-            latitude: ${center.lat()} <br/>
-            longitude: ${center.lng()} 
-        </div>`
-      );
-
-      infowindow.open(map, center);
-    }
 
 
-    const $keyword = document.getElementById('keyword');
-    const $searchBtn = document.getElementById('searchBtn');
 
-    $keyword.addEventListener('keydown',searchKeyword);
-    $searchBtn.addEventListener('click',searchKeyword);
 
-    function searchKeyword(e){
-      const tagName = e.target.tagName;
-      switch(tagName){
-        case 'INPUT':
-          if(e.key == 'Enter'){
-            const ps = new kakao.maps.services.Places(); 
-            // 키워드로 장소를 검색합니다
-            ps.keywordSearch($keyword.value, placesSearchCB); 
-          }
-          break;
-        case 'BUTTON': 
-            const ps = new kakao.maps.services.Places(); 
-            // 키워드로 장소를 검색합니다
-            ps.keywordSearch($keyword.value, placesSearchCB); 
-          break;
-        default:
-          console.log('etc..');  
-      }
-    }
+
+
+
+
+
+
+
+
+
+    // function searchKeyword(e){
+    //   const tagName = e.target.tagName;
+    //   switch(tagName){
+    //     case 'INPUT':
+    //       if(e.key == 'Enter'){
+    //         const ps = new kakao.maps.services.Places(); 
+    //         // 키워드로 장소를 검색합니다
+    //         ps.keywordSearch($keyword.value, placesSearchCB); 
+    //       }
+    //       break;
+    //     case 'BUTTON': 
+    //         const ps = new kakao.maps.services.Places(); 
+    //         // 키워드로 장소를 검색합니다
+    //         ps.keywordSearch($keyword.value, placesSearchCB); 
+    //       break;
+    //     default:
+    //       console.log('etc..');  
+    //   }
+    // }
 
         // 마커생성하기 
     // parameter : 위도, 경도
