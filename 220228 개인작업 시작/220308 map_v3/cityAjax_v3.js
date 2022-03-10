@@ -3,7 +3,7 @@
 const data = {
 
     "Seoul": [
-        { "sub": "전체" },
+        { "sub": "서울 전체" },
 
         { "sub": "서울 강남구" },
         { "sub": "서울 강동구" },
@@ -37,7 +37,7 @@ const data = {
     ],
 
     "Busan": [
-        { "sub": "전체" },
+        { "sub": "부산 전체" },
 
         { "sub": "부산 강서구" },
         { "sub": "부산 금정구" },
@@ -60,7 +60,7 @@ const data = {
     ],
 
     "Daegu": [
-        { "sub": "전체" },
+        { "sub": "대구 전체" },
 
         { "sub": "대구 남구" },
         { "sub": "대구 달서구" },
@@ -73,7 +73,7 @@ const data = {
     ],
 
     "Incheon": [
-        { "sub": "전체" },
+        { "sub": "인천 전체" },
 
         { "sub": "인천 계양구" },
         { "sub": "인천 남동구" },
@@ -89,7 +89,7 @@ const data = {
     ],
 
     "Gwangju": [
-        { "sub": "전체" },
+        { "sub": "광주 전체" },
 
         { "sub": "광주 광산구" },
         { "sub": "광주 남구" },
@@ -99,7 +99,7 @@ const data = {
     ],
 
     "Dajeon": [
-        { "sub": "전체" },
+        { "sub": "대전 전체" },
 
         { "sub": "대전 대덕구" },
         { "sub": "대전 동구" },
@@ -109,7 +109,7 @@ const data = {
     ],
 
     "Ulsan": [
-        { "sub": "전체" },
+        { "sub": "울산 전체" },
 
         { "sub": "울산 남구" },
         { "sub": "울산 동구" },
@@ -119,11 +119,11 @@ const data = {
     ],
 
     "Sejong": [
-        { "sub": "전체" },
+        { "sub": "세종 전체" },
     ],
 
     "Gangwon": [
-        { "sub": "전체" },
+        { "sub": "강원 전체" },
 
         { "sub": "강원 강릉시" },
         { "sub": "강원 동해시" },
@@ -148,7 +148,7 @@ const data = {
     ],
 
     "Gyeonggi": [
-        { "sub": "전체" },
+        { "sub": "경기 전체" },
 
         { "sub": "경기 고양시" },
         { "sub": "경기 과천시" },
@@ -190,7 +190,7 @@ const data = {
     ],
 
     "Gyeongnam": [
-        { "sub": "전체" },
+        { "sub": "경남 전체" },
 
         { "sub": "경남 거제시" },
         { "sub": "경남 김해시" },
@@ -215,7 +215,7 @@ const data = {
     ],
 
     "Gyeongbuk": [
-        { "sub": "전체" },
+        { "sub": "경북 전체" },
 
         { "sub": "경북 경산시" },
         { "sub": "경북 경주시" },
@@ -245,7 +245,7 @@ const data = {
     ],
 
     "Jeonnam": [
-        { "sub": "전체" },
+        { "sub": "전남 전체" },
 
         { "sub": "전남 광양시" },
         { "sub": "전남 나주시" },
@@ -275,7 +275,7 @@ const data = {
     ],
 
     "Jeonbuk": [
-        { "sub": "전체" },
+        { "sub": "전북 전체" },
 
         { "sub": "전북 군산시" },
         { "sub": "전북 김제시" },
@@ -295,7 +295,7 @@ const data = {
     ],
 
     "Chungnam": [
-        { "sub": "전체" },
+        { "sub": "충남 전체" },
 
         { "sub": "충남 계룡시" },
         { "sub": "충남 공주시" },
@@ -317,7 +317,7 @@ const data = {
     ],
 
     "Chungbuk": [
-        { "sub": "전체" },
+        { "sub": "충북 전체" },
 
         { "sub": "충북 제천시" },
         { "sub": "충북 청주시" },
@@ -335,7 +335,7 @@ const data = {
     ],
 
     "Jeju": [
-        { "sub": "전체" },
+        { "sub": "제주 전체" },
 
         { "sub": "제주 서귀포시" },
         { "sub": "제주 제주시" },
@@ -379,7 +379,7 @@ function super_f(e){
             let html ='';
             data[searchingCity].forEach(ele => {
                 html +=
-                `<span><input type="checkbox" class="subChk">${ele.sub}</span>`
+                `<span><input type="radio" class="subChk" name="subChk" value="${ele.sub}">${ele.sub}</span>`
             });
             subBox.innerHTML = html;
         }
