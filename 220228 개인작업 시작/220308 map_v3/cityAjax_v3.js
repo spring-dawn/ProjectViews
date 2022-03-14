@@ -361,9 +361,11 @@ function super_f(e){
     // console.log(e.target.dataset.superId);
     const $btnWhere = e.target.dataset.superId;
 
-    // url은 사용자에 따라 변경 주의
-    const url = 'http://192.168.168.103:5500';
-    fetch(url,{
+    // url은 사용 기기에 따라 변경 주의. 1은 집, 2는 교육장.
+    const url1 = 'http://192.168.168.103:5500';
+    const url2 = 'http://192.168.0.171:5500';
+
+    fetch(url2,{
         method:'GET',
     }).then(res => res.json())
       .then(res => console.log(res))
@@ -374,8 +376,7 @@ function super_f(e){
     for(let i=0; i<=Object.keys(data).length; i++){
         if( $btnWhere === Object.keys(data)[i] ){
             let searchingCity = Object.keys(data)[i];
-            // console.log(searchingCity);
-            // console.log(data[searchingCity]);
+
             let html ='';
             data[searchingCity].forEach(ele => {
                 html +=
@@ -385,15 +386,7 @@ function super_f(e){
         }
     }
 
-
-    // 전체 버튼 눌렀을 때의 ajax 함수
-
-
-
-    // 체크박스 제어 함수
-
-
-
+    // 카카오 지도 검색 특성 때문에 라디오 버튼으로 바꾸면서 선택을 따로 제어할 필요가 없어짐
 
     
 }

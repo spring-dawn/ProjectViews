@@ -59,7 +59,7 @@
       chkBoxes.forEach(ele => {
         keyword += ele.value+' ';
       });
-      console.log(keyword);
+      // console.log(keyword);
 
       // 3) 추출한 키워드를 카카오api 검색함수에 매개값으로 넣고 돌림
       // 카카오 지도api는 여러 개의 검색어가 겹치면 먹통이 된다. 본질적 문제로 라디오 버튼 사용.
@@ -123,7 +123,7 @@
     const markers=[];
     const infos=[];
 
-    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+    // 키워드 검색 완료 시 호출되는 콜백함수
     function placesSearchCB (data, status, pagination) {
 
       // console.log(data);
