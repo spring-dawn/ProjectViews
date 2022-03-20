@@ -147,6 +147,7 @@
    /* 지역 선택 및 버튼 테두리 감추기 */
    .allCities{ height: 10%; padding-top: 10px;}
    .allCities > button { padding: 0; border: none; width: 50%; font-size: 14pt;}
+   .allCities > button:hover { color: #f37335  ; }
 
    .superCity{
      height: 90%;
@@ -155,6 +156,8 @@
      grid-template-columns: 1fr 1fr;
    }
    .superCity > button{ padding: 0; border: none; font-size: 14pt; }
+   .superCity > button:hover { color: #f37335 ; }
+
    
    /* 시군구(하위) 상자 */
    #subBox{
