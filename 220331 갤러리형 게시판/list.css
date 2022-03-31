@@ -1,0 +1,374 @@
+*{
+    font-family: 'Jua', sans-serif;
+    padding: 0;
+    margin: 0;
+    /* font-family: 'Gamja Flower', cursive; */
+    color: #594440;
+    background-color: #fcf8f4;
+   }
+  
+   a{
+    color: #000;
+    text-decoration: none;
+   }
+  
+   header{
+    height: 100px;
+    width: 80%;
+    min-width: 1300px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+   }
+  
+   /* 상단 메뉴, 아이콘 모양 */
+   .icon_ul,
+   .menu{
+     height: 100px;
+     list-style: none;
+     display: flex;
+     align-items: center;
+   }
+   .menu>li{
+     height: 2em; 
+     margin:8px 12px;
+     font-size: 25px;
+   }
+  
+    /* 메뉴 박스 */
+    .category{position: relative;} 
+      
+   /* 드롭다운 구현 */
+    .dropdown-content{
+        /* 숨기기 */
+        display: none; 
+        position: absolute;
+        z-index: 1000;
+      
+    }
+    /* 펼치기 */
+    .category:hover .dropdown-content { 
+        transition: all .5s ease-out;
+        /* background-color: black; */
+        width: 100%; height: inherit;
+        display: block; 
+        transition: ease-in-out .5s;
+        display: grid; 
+        grid-template-columns: 1fr 1fr 0.75fr 1.3fr 0.65fr;
+    }
+    .depth2{
+        display: flex; flex-direction: column;
+        width: inherit;
+        height: 50px; line-height: 50px; 
+        margin: 0 auto;
+        font-size: 20px;
+        text-align: center; 
+    }
+    /* 마우스 호버링 컬러 */
+    .dropdown-content > div > a:hover{ background-color: black; color: white; } 
+      /* 우측 상단 아이콘 */
+      .icon li{
+        margin:8px 12px;
+        font-size: 30px;
+        }
+  
+  /* 상단 검색창.. 인데 당장은 구현이 어려운 모양 */
+  .search{
+    height: 40px;
+    width: 25%;
+    margin: 0 auto;
+    display: flex;
+  }
+  
+  .search.textbox{
+    height: 30px;
+    width: 80%;
+    text-align:start;
+    font-size: 25px;
+  }
+  
+  .search.button{
+    height: 35px;
+    width: 50px;
+    padding-left: 10px;
+    line-height: 35px;
+    font-size: 16px;
+  }
+  
+  
+  /* main 본문 */
+  main {
+    height: 1400px;
+    width: 80%;
+    min-width: 1450px;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+  }
+  
+  /* 왼쪽 배너 */
+  #leftBanner_wrapper {
+      display: flex;
+      flex-direction: column;
+  
+      width: 160px;
+      height: 650px;
+      margin: 0 10px 0 10px;
+      border: double 1px gray;
+  
+      background-color: white;
+  }
+  
+  #leftBanner_title {
+      border-bottom: solid 1px black;
+      padding: 5px 0 10px 0;
+      font-size: 30pt;
+      font-weight: bold;
+      text-align: center;
+  }
+  
+  .leftBanner_ul {
+      list-style: none;
+      width: 100%;
+      padding-left: 0;
+      margin: 0 auto;
+      height: 60%;
+  }
+  
+  .leftBanner_li {
+      font-size: 20pt;
+      text-align: center;
+      padding: 10px 0;
+      /* border-bottom: dashed 1px black; */
+  }
+  
+  /* 배너 메뉴 미우스 호버링 */
+  .leftLi_a {
+      color: black;
+      text-decoration: none;
+  }
+  
+  /* .leftLi_a:hover {
+      color: white;
+      background-color: cornflowerblue;
+      border-radius: 5px;
+  } */
+  
+  /* 클릭하면 메뉴 색깔이 바뀌고 해당 페이지로 넘어가며, 색이 바뀐 상태를 유지한다. 구체적인 형태는 미정 */
+  #onclick_ex{
+      background-color: cornflowerblue;
+      color: white;
+      border-radius: 5px;
+  }
+  
+  
+  /* 게시판. main태그는 별 기능 없음*/
+  .content_page {
+      display: flex;
+      flex-direction: column;
+      width: inherit;
+  }
+  
+  #page_status{
+      border: 1px black solid;
+      height: 50px;
+      margin: 0px 10px 0 10px;
+      padding: 5px;
+  
+      display: flex;
+      justify-content: space-between;
+  }
+  #page_name{
+      font-size: 20pt;
+      font-weight: bold;
+      margin-right: auto;
+      margin-top: 5px;
+      margin-left: 5px;
+  }
+  .order_wrapper{
+      margin-top: 12px;
+      margin-left: auto;
+      width: 170px;
+  }
+  #post_order{
+      width: 85px;
+      margin: auto;
+  }
+  #write_btn{
+      margin: auto;
+      margin-left: 10px;
+      width: 60px;
+  }
+  
+  .content {
+      position: relative;
+      top: 9px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      height: 90%;
+  
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      overflow: auto;
+  }
+  
+  .item {
+      width: 370px;
+      height: 280px;
+      padding: 5px;
+      border: 1px solid gray;
+      border-radius: 3px;
+      box-sizing: border-box;
+  
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+  }
+  
+  /* post = (img + caption) */
+  .post {
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+  }
+  
+  .img {
+      height: 65%;
+      border: 1px black solid;
+  }
+  
+  /* cation = (postTitle + info + memId + uploadTime + bookmark) */
+  .caption {
+      display: flex;
+      flex-direction: column;
+  
+      height: 30%;
+      margin-top: 8px;
+      box-sizing: border-box;
+  }
+  
+  .postTitle {
+      font-size: 10pt;
+      font-weight: bold;
+      margin: 0 0 5px 2px;
+  }
+  
+  .info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: gray;
+  
+      margin: 10px 0 5px 2px;
+  }
+  
+  .memId {
+      width: 200px;
+  }
+  
+  .uploadTime {
+      width: 70px;
+      text-align: center;
+  }
+  
+  .bookmark {
+      align-self: flex-end;
+      width: 70px;
+      margin: 0;
+      font-size: 10pt;
+      border: 1px;
+      border-radius: 3px;
+  
+      background-color: skyblue;
+      color: white;
+  }
+  
+  /* 게시판 하단 */
+  #page_navi {
+      margin: auto;
+      margin-top: 30px;
+      width: 100%;
+  
+      display: flex;
+      flex-direction: column;
+  }
+  
+  /* 페이지 번호 */
+  #dom_page {
+      display: flex;
+      box-sizing: border-box;
+  
+      height: 50%;
+      margin: auto;
+      margin-bottom: 3px;
+  }
+  
+  .pageNo {
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      border: 1px solid black;
+      color: gray;
+  }
+  
+  /* 페이징 */
+.bbs-page{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .bbs-page .bbs-page-item{
+    display:inline-block;
+    width:24px;
+    height:24px;
+    padding:2px;
+    text-align: center;
+  }
+  
+  .bbs-page .bbs-page-item.active{
+    background-color:#333;
+    color:white;
+  }
+  
+  
+  /* 게시글 검색 */
+  #post_search_bar {
+      width: 80%;
+      height: 22px;
+      text-align: right;
+  
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom: 50px;
+  }
+  
+  #scan_post {
+      border: 1px solid black;
+      height: 20px;
+      margin: 0;
+      padding: 0;
+  }
+  
+  #post_search_btn {
+      margin-left: 5px;
+  
+      background-color: black;
+      color: white;
+  }
+  
+  
+  /* 하단 */
+  footer{
+    border-top: 1px solid darkgreen;
+  }
+  
+  footer>ul{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  

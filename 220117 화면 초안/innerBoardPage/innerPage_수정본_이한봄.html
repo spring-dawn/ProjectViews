@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 페이지</title>
+    <style>
+        /* *{outline: 1px red solid;} */
+        body {
+            background-color: whitesmoke;
+        }
+
+        header {
+            height: 30%;
+        }
+
+        .upper {
+            display: flex;
+            height: 20%;
+            justify-content: flex-end;
+        }
+
+        input {}
+
+        button {}
+
+        header .login {
+            padding: 0 10px 0 20px;
+        }
+
+        header .join {
+            padding: 0 20px;
+        }
+
+        hr {}
+
+        header .header {
+            height: 200px;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            line-height: 200px;
+            background-color: antiquewhite;
+            color: #DAC1A7;
+            font-size: 70px;
+        }
+
+        header nav {
+            display: flex;
+            width: 80%;
+            margin: auto;
+            justify-content: space-evenly;
+            background-color: white;
+        }
+
+        header nav .category {
+            padding: 10px;
+            border-radius: 20px;
+            background-color: wheat;
+        }
+
+
+        /* m5 메인 */
+        main {
+            display: flex;
+
+            width: 80%;
+            height: 1400px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        /* 왼쪽 배너 */
+        #leftBanner_wrapper {
+            display: flex;
+            flex-direction: column;
+
+            width: 160px;
+            height: 650px;
+            margin: 0 10px 0 10px;
+            border: double 1px gray;
+
+            background-color: white;
+        }
+
+        #leftBanner_title {
+            border-bottom: solid 1px black;
+            padding: 5px 0 10px 0;
+            font-size: 30pt;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .leftBanner_ul {
+            list-style: none;
+
+            padding-left: 0;
+            margin: 0 auto;
+            height: 60%;
+        }
+
+        .leftBanner_li {
+            font-size: 20pt;
+            text-align: center;
+
+            padding: 10px 0;
+            border-bottom: dashed 1px black;
+        }
+
+        /* 배너 메뉴 미우스 호버링 */
+        .leftLi_a {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* .leftLi_a:hover {
+            color: white;
+            background-color: cornflowerblue;
+            border-radius: 5px;
+        } */
+
+        /* 클릭하면 메뉴 색깔이 바뀌고 해당 페이지로 넘어가며, 색이 바뀐 상태를 유지한다. 구체적인 형태는 미정 */
+        #onclick_ex{
+            background-color: cornflowerblue;
+            color: white;
+            border-radius: 5px;
+        }
+
+
+        /* 게시판. main태그는 별 기능 없음*/
+        .content_page {
+            display: flex;
+            flex-direction: column;
+            width: inherit;
+        }
+
+        .content {
+            margin: 0 10px 0 10px;
+            box-sizing: border-box;
+            height: 90%;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            overflow: auto;
+        }
+
+        .item {
+            width: 370px;
+            height: 280px;
+            padding: 5px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        /* post = (img + caption) */
+        .post {
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .img {
+            height: 65%;
+            border: 1px black solid;
+        }
+
+        /* cation = (postTitle + info + memId + uploadTime + bookmark) */
+        .caption {
+            display: flex;
+            flex-direction: column;
+
+            height: 30%;
+            margin-top: 8px;
+            box-sizing: border-box;
+        }
+
+        .postTitle {
+            font-size: 10pt;
+            font-weight: bold;
+            margin: 0 0 5px 2px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 8pt;
+            color: gray;
+
+            margin: 10px 0 5px 2px;
+        }
+
+        .memId {
+            width: 200px;
+        }
+
+        .uploadTime {
+            width: 70px;
+            text-align: center;
+        }
+
+        .bookmark {
+            align-self: flex-end;
+            width: 70px;
+            margin: 0;
+            font-size: 10pt;
+            border: 1px;
+            border-radius: 3px;
+
+            background-color: skyblue;
+            color: white;
+        }
+
+        /* 게시판 하단 */
+        #page_navi {
+            margin: auto;
+            margin-top: 30px;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 페이지 번호 */
+        #dom_page {
+            display: flex;
+            box-sizing: border-box;
+
+            height: 50%;
+            margin: auto;
+            margin-bottom: 3px;
+        }
+
+        .pageNo {
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            color: gray;
+        }
+
+        /* 페이지 검색 */
+        #page_search_bar {
+            width: 100%;
+            text-align: center;
+        }
+
+        #scan_page {
+            width: 65px;
+            margin-right: 5px;
+        }
+
+        #page_search_btn {
+            margin-left: 5px;
+            background-color: black;
+            color: white;
+        }
+
+        /* 게시글 검색 */
+        #post_search_bar {
+            width: 80%;
+            height: 22px;
+            text-align: right;
+
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        #scan_post {
+            border: 1px solid black;
+            height: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #post_search_btn {
+            margin-left: 5px;
+
+            background-color: black;
+            color: white;
+        }
+
+        /* 최하단 */
+        footer {
+            display: flex;
+            flex-direction: column;
+
+            width: 80%;
+            height: 190px;
+            margin: auto;
+            margin-bottom: 70px;
+        }
+
+        #bottomBar {
+            padding: 10px;
+            height: 40px;
+            line-height: 40px;
+            border-top: double 2px black;
+
+            color: gray;
+            font-size: 10pt;
+        }
+
+        #etc {
+            height: 110px;
+            display: flex;
+            color: gray;
+        }
+
+        /* 배경색과 내용물은 미정 */
+        #logo {
+            width: 20%;
+            border: 1px black dotted;
+        }
+
+        #company {
+            width: 60%;
+            border: 1px black dotted;
+        }
+
+        #worktime {
+            width: 20%;
+            border: 1px black dotted;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="upper">
+            <input type="text" placeholder="검색어를 입력하세요.">
+            <button>검색</button>
+            <div class="login">로그인</div>
+            <div class="join">회원가입</div>
+        </div>
+
+        <hr>
+
+        <div class="header">
+            HOME CA:BE
+        </div>
+
+        <hr>
+
+        <nav>
+            <div class="category category1">분야별 레시피</div>
+            <div class="category category2">테마별 레시피</div>
+            <div class="category category3">사진 팁</div>
+            <div class="category category4">홈베이킹 클래스</div>
+            <div class="category category5">QnA</div>
+            <div class="category category6">자유게시판</div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 왼쪽 배너 -->
+        <div id="leftBanner_wrapper">
+            <!-- 배너 제목 -->
+            <div id="leftBanner_title">title</div>
+            <ul class="leftBanner_ul">
+                <li class="leftBanner_li"><a href="" class="leftLi_a">menu1</a></li>
+                <li class="leftBanner_li"><a href="" class="leftLi_a" id="onclick_ex">menu2</a></li>
+                <li class="leftBanner_li"><a href="" class="leftLi_a">menu3</a></li>
+                <li class="leftBanner_li"><a href="" class="leftLi_a">menu4</a></li>
+                <li class="leftBanner_li"><a href="" class="leftLi_a">menu5</a></li>
+            </ul>
+        </div>
+        <!-- 게시판 -->
+        <div class="content_page">
+            <!-- 본문 -->
+            <div class="content">
+                <!-- 포스트. 예시는 투박하게 두더라도 추후 리팩토링 필수 -->
+                <div class="item">
+
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img">image</div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                            <button class="bookmark">즐겨찾기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 게시판 하단 쪽번호, 검색창 -->
+            <div id="page_navi">
+                <div id="dom_page"><span class="pageNo">1</span></div>
+                <div id="page_search_bar">
+                    <input type="text" name="scan_page" id="scan_page">페이지로<button id="page_search_btn">바로가기</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 게시판 최하단. 게시글 검색, 기타 등등 -->
+    <div id="post_search_bar">
+        <form action="">
+            <select name="post_filter" id="post_filter">
+                <option value="title">제목</option>
+                <option value="author">작성자</option>
+                <option value="mixed">제목+내용</option>
+            </select>
+            <input type="text" name="scan_post" id="scan_post"><button id="post_search_btn">검색</button>
+        </form>
+    </div>
+
+    <footer class="copyright_box">
+        <div class="bottom_wrapper">
+            <div id="bottomBar">개인정보 취급방침 &nbsp; | &nbsp; ~ &nbsp; | &nbsp; 블라블라</div>
+            <div id="etc">
+                <div id="logo">(브랜드 로고)</div>
+                <div id="company">(회사 정보)</div>
+                <div id="worktime">(업무시간)</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

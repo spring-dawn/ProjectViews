@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/69fdf7daef.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    header {
+      height: 30%;
+    }
+    .upper {
+      display: flex;
+      height: 20%;
+      justify-content: flex-end;
+    }
+    input {}
+    button {}
+    header .login {
+      padding: 0 10px 0 20px;
+    }
+    header .join {
+      padding: 0 20px;
+    }
+    hr {}
+    header .header {
+      height: 200px;
+      width: 80%;
+      margin: auto;
+      text-align: center;
+      line-height: 200px;
+      background-color: antiquewhite;
+      color: #DAC1A7;
+      font-size: 70px;
+    }
+    header nav {
+      display: flex;
+      width: 80%;
+      margin: auto;
+      justify-content: space-evenly;
+      background-color: white;
+    }
+    header nav .category {
+      padding: 10px;
+      border-radius: 20px;
+      background-color: wheat;
+    }
+    section {
+      background-color: white;
+    }
+    .margin-top {
+      background: white;
+      width: 100%;
+      height: 50px;
+    }
+    article {
+      margin: 0 auto;
+      width: 500px;
+      height: 300px;
+    }
+    .login-title {
+      background-color: wheat;
+      padding-left: 20px;
+      height: 30px;
+      color: brown;
+      line-height: 30px;
+    }
+    .login-body {
+      display: flex;
+      background-color: beige;
+      height: 200px;
+    }
+    .login-body1 {
+      padding-top: 35px;
+      height: 200px;
+      width: 55%;
+      text-align: center;
+    }
+    .id-class,
+    .pw-class {
+      padding-bottom: 5px;
+      margin: 0 auto;
+      width: 200px;
+    }
+    .id-text,
+    .pw-text {
+      border: 1px solid gray;
+    }
+    .id-textbox,
+    .pw-textbox {
+      width: 165px;
+      height: 30px;
+    }
+    .fa-user-circle,
+    .fa-key {
+      font-size: 20px;
+      width: 25px;
+      height: 25px;
+    }
+    .login-button {
+      width: 200px;
+      height: 35px;
+      margin-top: 10px;
+      background-color: orange;
+      border: 1px solid antiquewhite;
+    }
+    .login-bottom {
+      background-color: antiquewhite;
+      padding-left: 10px;
+      padding-top: 10px;
+      height: 70px;
+      text-align: center;
+      list-style: none;
+    }
+    .line-border {
+      height: 180px;
+      margin-top: 10px;
+      border-right: 1px solid silver;
+    }
+    .login-body2 {
+      margin-top: 30px;
+      height: 200px;
+      width: 45%;
+      text-align: center;
+    }
+    .login-sns-text {
+      font-size: 13px;
+    }
+    .fab {
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+    .fa-neos {
+      color: green;
+      font-size: 45px;
+    }
+    .fa-kickstarter {
+      color: yellow;
+      font-size: 50px;
+    }
+    .fa-facebook {
+      color: blue;
+      font-size: 50px;
+    }
+    .login-text {
+      padding-top: 20px;
+      font-size: 10px;
+    }
+
+    @media screen and (max-width:500px) {
+      article {
+        width: 80%;
+      }
+      .login-body {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+      }
+      .login-body1 {
+        margin: 0 auto;
+      }
+      .login-body2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .login-sns,
+      .login-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .line-border {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="upper">
+      <input type="text" placeholder="검색어를 입력하세요.">
+      <button>검색</button>
+      <div class="login"><a href="login.html">로그인</a></div>
+      <div class="join">회원가입</div>
+    </div>
+    <hr>
+    <div class="header">
+      HOME CA:BE
+    </div>
+    <hr>
+    <nav>
+      <div class="category category1">분야별 레시피</div>
+      <div class="category category2">테마별 레시피</div>
+      <div class="category category3">사진 팁</div>
+      <div class="category category4">홈베이킹 클래스</div>
+      <div class="category category5">QnA</div>
+      <div class="category category6">자유게시판</div>
+    </nav>
+  </header>
+  <section>
+    <div class="margin-top"></div>
+    <article>
+      <div class="login-title">LOGIN</div>
+      <div class="login-body">
+        <div class="login-body1">
+          <div class="id-class">
+            <td><i class="fas fa-user-circle"></i></td>
+            <td class="id-text">
+              <input type="text" placeholder=" 아이디" class="id-textbox">
+            </td>
+          </div>
+          <div class="pw-class">
+            <td><i class="fas fa-key"></i></td>
+            <td class="pw-text">
+              <input type="password" placeholder=" 비밀번호" class="pw-textbox">
+            </td>
+          </div>
+          <button class="login-button">로그인</button>
+        </div>
+        <div class="line-border"></div>
+        <div class="login-body2">
+          <span class="login-sns-text">다른 아이디로 로그인하기</span>
+          <div class="login-sns">
+            <a href="#"><i class="fab fa-neos"></i></a>
+            <a href="#"><i class="fab fa-kickstarter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+          </div>
+          <div class="login-text">
+            <a href="#"> 회원가입 |</a>
+            <a href="#">아이디찾기 |</a>
+            <a href="#">비밀번호찾기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

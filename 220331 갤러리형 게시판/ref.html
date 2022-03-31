@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <title>Document</title>
+    
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+    /* border: 1px solid red; */
+    /* font-family: 'Gamja Flower', cursive; */
+    /* background-color: #F7EEE3; */
+    background-color: #fcf8f4;
+    font-family: 'Jua', sans-serif;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+header{
+    height: 100px;
+    width: 80%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 상단 메뉴 */
+.icon_ul,
+.menu{
+  list-style: none;
+  display: flex;
+}
+
+.menu>li{
+    margin:8px 12px;
+    font-size: 25px;
+}
+
+/* 우측 상단 아이콘 */
+.icon li{
+    margin:8px 12px;
+    font-size: 30px;
+}
+
+/* 검색창 */
+.search{
+    height: 40px;
+    width: 25%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.search.textbox{
+    height: 30px;
+    width: 80%;
+    text-align:start;
+    font-size: 25px;
+}
+
+.search.button{
+    height: 35px;
+    width: 50px;
+    padding-left: 10px;
+    line-height: 35px;
+    font-size: 16px;
+}
+
+/* main */
+main {
+    height: 1400px;
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+}
+
+/* 왼쪽 카테고리 */
+#leftCategory {
+    height: 400px;
+    width: 13%;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+}
+
+#leftCategory_title {
+    height: 10%;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-size: 18pt;
+    font-weight: bold;
+    line-height: 40px;
+    background-color: #FBD786;
+}
+
+.leftCategory_ul {
+    height: 90%;
+    width: 100%;
+    list-style: none;
+}
+
+.leftCategory_li {
+    height: 50px;
+    margin: 30px 0;
+    border-bottom: solid 1px black;
+    font-size: 18pt;
+    line-height: 20px;
+}
+
+#subscribeList{
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+/* 본문 전체 */
+.scbLiWrap{
+    height: 773px;
+    width: 80%;
+    margin-left: 150px;
+    border-bottom: 2px solid gray;
+}
+
+/* scbLiMenu 부분 */
+.scbLiWrap .scbLiMenu{
+    margin: 10px 10px;
+    padding-left: 20px;
+    border-left: 4px solid #F37335;
+    font-size: 35px;
+}
+
+/* scbLiMain_top 부분 */
+.scbLiWrap .scbLiMain_top {
+    height: 70px;
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    border-bottom: 2px solid gray;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* scbLiMain_med 부분 */
+.scbLiWrap .scbLiMain_med{
+    display: flex;
+    flex-direction: column;
+}
+
+.scbLiWrap .scbLiMain_med .item{
+    height: 70px;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    line-height: 70PX;
+}
+
+.scbLiWrap .scbLiMain_med .item .fas{
+    color: #FDC830;
+}
+
+.scbLiWrap .scbLiMain_med .item .fa-bell{
+    font-size: 25px;
+}
+
+/* scbLiMain_top,scbLiMain_med 공통 부분 */
+.scbLiWrap .scbNum{
+    width: 10%;
+}
+
+.scbLiWrap .scbNick{
+    width: 25%;
+}
+
+.scbLiWrap .scbNew{
+    width: 35%;
+}
+
+.scbLiWrap .scbAlarm{
+    width: 15%;
+}
+
+.scbLiWrap .scb{
+    width: 15%;
+}
+
+.scbLiWrap .scbDelete{
+    width: 70px;
+    margin: auto;
+    color: #F37335;
+}
+
+/* pageNav 부분 */
+.scbLiWrap .pageNav{
+    height: 50px;
+    width: 100%;
+    margin: 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.scbLiWrap .pageNav .pageNum{
+    margin: 30px;
+    padding: 0 15px;
+    list-style: none;
+    border: 1px solid black;
+}
+
+/* 하단 */
+footer{
+    border-top: 1px solid darkgreen;
+}
+
+footer>ul{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <!-- 로고 -->
+    <div class="logo"><img src="/logo.jpg" alt="" width="150px" height="100px"></div>
+    <!-- 상단 메뉴 -->
+    <nav>
+        <ul class="menu">
+            <li>분야별 레시피</li>
+            <li>|</li>
+            <li>테마별 레시피</li>
+            <li>|</li>
+            <li>사진 팁</li>
+            <li>|</li>
+            <li>홈베이킹 클래스</li>
+            <li>|</li>
+            <li>Q&A</li>
+            <li>|</li>
+            <li>자유게시판</li>
+        </ul>
+    </nav>
+    <!-- 우측상단 아이콘 -->
+    <div class="icon">
+        <ul class="icon_ul">
+            <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+            <li><i class="far fa-user"></i></li>
+            <li><i class="fas fa-bars"></i></li>
+        </ul>
+    </div>
+</header>
+
+<!-- 검색창
+<div class="container_search">
+    <div class="search">
+        <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
+        <button class="search button">검색</button>
+    </div>
+</div> -->
+
+<main>
+    <!-- 왼쪽 카테고리 -->
+    <div id="leftCategory">
+        <div id="leftCategory_title">마이 페이지</div>
+        <ul class="leftCategory_ul">
+            <li class="leftCategory_li"><a href="" class="leftLi_a" id="subscribeList">구독 / 알림</a></li>
+            <li class="leftCategory_li"><a href="" class="leftLi_a" id="likeList">관심리스트</a></li>
+            <li class="leftCategory_li"><a href="" class="leftLi_a" id="reportList">신고 내역</a></li>
+            <li class="leftCategory_li"><a href="" class="leftLi_a" id="postingList">게시물 / 댓글</a></li>
+        </ul>
+    </div>
+    <!-- 본문 -->
+    <div class="scbLiWrap">
+        <div class="scbLiMenu">구독 / 알림</div>
+        <div class="scbLiMain_top">
+            <div class="scbNum">번호</div>
+            <span>|</span>
+            <div class="scbNick">닉네임</div>
+            <span>|</span>
+            <div class="scbNew">최근 게시물</div>
+            <span>|</span>
+            <div class="scbAlarm">알림 설정</div>
+            <span>|</span>
+            <div class="scb">구독</div>
+        </div>
+        <div class="scbLiMain_med">
+            <div class="item item1">
+                <div class="scbNum">1</div>
+                <div class="scbNick">닉네임</div>
+                <div class="scbNew">최근 게시물</div>
+                <div class="scbAlarm"><i class="fas fa-bell"></i></div>
+                <button class="scbDelete" type="button" >구독 취소</button>
+            </div>
+            <div class="item item2">
+                <div class="scbNum">2</div>
+                <div class="scbNick">닉네임</div>
+                <div class="scbNew">최근 게시물</div>
+                <div class="scbAlarm"><i class="fas fa-bell"></i></div>
+                <button class="scbDelete" type="button" >구독 취소</button>
+            </div>
+            <div class="item item3">
+                <div class="scbNum">3</div>
+                <div class="scbNick">닉네임</div>
+                <div class="scbNew">최근 게시물</div>
+                <div class="scbAlarm"><i class="fas fa-bell"></i></div>
+                <button class="scbDelete" type="button" >구독 취소</button>
+            </div>
+            <div class="item item4">
+                <div class="scbNum">4</div>
+                <div class="scbNick">닉네임</div>
+                <div class="scbNew">최근 게시물</div>
+                <div class="scbAlarm"><i class="far fa-bell"></i></div>
+                <button class="scbDelete" type="button" >구독 취소</button>
+            </div>
+            <div class="item item5">
+                <div class="scbNum">5</div>
+                <div class="scbNick">닉네임</div>
+                <div class="scbNew">최근 게시물</div>
+                <div class="scbAlarm"><i class="far fa-bell"></i></div>
+                <button class="scbDelete" type="button" >구독 취소</button>
+            </div>
+            <div class="item item6">
+                <div class="scbNum">6</div>
+                <div class="scbNick">닉네임</div>
+                <div class="scbNew">최근 게시물</div>
+                <div class="scbAlarm"><i class="far fa-bell"></i></div>
+                <button class="scbDelete" type="button" >구독 취소</button>
+            </div>
+            <div class="item item7">
+                <div class="scbNum">7</div>
+                <div class="scbNick">닉네임</div>
+                <div class="scbNew">최근 게시물</div>
+                <div class="scbAlarm"><i class="far fa-bell"></i></div>
+                <button class="scbDelete" type="button" >구독 취소</button>
+            </div>
+        </div>
+        <div class="pageNav">
+            <a href="#"><i class="fas fa-backward"></i></a>
+            <ul>
+                <li class="pageNum"><a href="#">1</a></li>
+            </ul>
+            <a href="#"><i class="fas fa-forward"></i></a>
+        </div>
+    </div>
+</main>
+
+<!-- 하단 -->
+<footer>
+    <ul class="menu">
+        <li>HOME CA:BE 운영팀:a@kh.com</li>
+        <li>|</li>
+        <li>이용약관</li>
+        <li>|</li>
+        <li>개인정보취급방침</li>
+    </ul>
+</footer>
+</body>
+</html>
