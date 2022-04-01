@@ -1,30 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d4b88f7572.js" crossorigin="anonymous"></script>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <title>Document</title>
-    
+    <title>견본</title>
     <style>
-        *{
+        *{  
     padding: 0;
     margin: 0;
-    /* border: 1px solid red; */
-    /* font-family: 'Gamja Flower', cursive; */
-    /* background-color: #F7EEE3; */
-    background-color: #fcf8f4;
-    font-family: 'Jua', sans-serif;
 }
+
 a{
     color: #000;
     text-decoration: none;
@@ -121,94 +111,108 @@ main {
     line-height: 20px;
 }
 
-#subscribeList{
+#likeList{
     padding: 10px;
     border: 1px solid red;
     border-radius: 5px;
 }
 
 /* 본문 전체 */
-.scbLiWrap{
-    height: 773px;
-    width: 80%;
-    margin-left: 150px;
-    border-bottom: 2px solid gray;
+.liLiWrap {
+    width: 70%;
+    margin-left: 100px;
 }
 
-/* scbLiMenu 부분 */
-.scbLiWrap .scbLiMenu{
+/* 관심리스트 글씨 */
+.liLiWrap .liLiMenu{
     margin: 10px 10px;
     padding-left: 20px;
     border-left: 4px solid #F37335;
     font-size: 35px;
 }
 
-/* scbLiMain_top 부분 */
-.scbLiWrap .scbLiMain_top {
-    height: 70px;
-    width: 100%;
-    margin-top: 80px;
+/* 게시물 부문 */
+.liLiWrap .liLiItems{
+    margin-top: 30px;
+    box-sizing: border-box;
     display: flex;
-    border-bottom: 2px solid gray;
-    font-size: 20px;
-    text-align: center;
-    line-height: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-/* scbLiMain_med 부분 */
-.scbLiWrap .scbLiMain_med{
+.item {
+    height: 370px;
+    width: 300px;
+    margin-top: 50px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
-.scbLiWrap .scbLiMain_med .item{
-    height: 70px;
+.post {
+    height: 100%;
     width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.img {
+    height: 65%;
+    width: 100%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    text-align: center;
+}
+
+.snowman{
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.caption {
+    height: 10%;
     margin-top: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid gray;
+    justify-content: space-between;
+    font-size: 17px
+}
+
+.postTitle {
+    font-weight: bold;
+}
+
+.bookmark {
+    margin-right: 10px;
     text-align: center;
-    line-height: 70PX;
+    color: red;
 }
 
-.scbLiWrap .scbLiMain_med .item .fas{
-    color: #FDC830;
+.info {
+    display: flex;
+    justify-content: space-evenly;
+    color: gray;
+    font-size: 8pt;
 }
 
-.scbLiWrap .scbLiMain_med .item .fa-bell{
-    font-size: 25px;
+.memId {
+    width: 200px;
 }
 
-/* scbLiMain_top,scbLiMain_med 공통 부분 */
-.scbLiWrap .scbNum{
-    width: 10%;
-}
-
-.scbLiWrap .scbNick{
-    width: 25%;
-}
-
-.scbLiWrap .scbNew{
-    width: 35%;
-}
-
-.scbLiWrap .scbAlarm{
-    width: 15%;
-}
-
-.scbLiWrap .scb{
-    width: 15%;
-}
-
-.scbLiWrap .scbDelete{
+.uploadTime {
     width: 70px;
-    margin: auto;
-    color: #F37335;
+  
+    text-align: center;
 }
 
 /* pageNav 부분 */
-.scbLiWrap .pageNav{
+.liLiWrap .pageNav{
     height: 50px;
     width: 100%;
     margin: 50px 0;
@@ -219,7 +223,7 @@ main {
     font-size: 25px;
 }
 
-.scbLiWrap .pageNav .pageNum{
+.liLiWrap .pageNav .pageNum{
     margin: 30px;
     padding: 0 15px;
     list-style: none;
@@ -241,138 +245,199 @@ footer>ul{
     </style>
 </head>
 <body>
-<header>
-    <!-- 로고 -->
-    <div class="logo"><img src="/logo.jpg" alt="" width="150px" height="100px"></div>
-    <!-- 상단 메뉴 -->
-    <nav>
-        <ul class="menu">
-            <li>분야별 레시피</li>
-            <li>|</li>
-            <li>테마별 레시피</li>
-            <li>|</li>
-            <li>사진 팁</li>
-            <li>|</li>
-            <li>홈베이킹 클래스</li>
-            <li>|</li>
-            <li>Q&A</li>
-            <li>|</li>
-            <li>자유게시판</li>
-        </ul>
-    </nav>
-    <!-- 우측상단 아이콘 -->
-    <div class="icon">
-        <ul class="icon_ul">
-            <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
-            <li><i class="far fa-user"></i></li>
-            <li><i class="fas fa-bars"></i></li>
-        </ul>
-    </div>
-</header>
-
-<!-- 검색창
-<div class="container_search">
-    <div class="search">
-        <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
-        <button class="search button">검색</button>
-    </div>
-</div> -->
-
-<main>
-    <!-- 왼쪽 카테고리 -->
-    <div id="leftCategory">
-        <div id="leftCategory_title">마이 페이지</div>
-        <ul class="leftCategory_ul">
-            <li class="leftCategory_li"><a href="" class="leftLi_a" id="subscribeList">구독 / 알림</a></li>
-            <li class="leftCategory_li"><a href="" class="leftLi_a" id="likeList">관심리스트</a></li>
-            <li class="leftCategory_li"><a href="" class="leftLi_a" id="reportList">신고 내역</a></li>
-            <li class="leftCategory_li"><a href="" class="leftLi_a" id="postingList">게시물 / 댓글</a></li>
-        </ul>
-    </div>
-    <!-- 본문 -->
-    <div class="scbLiWrap">
-        <div class="scbLiMenu">구독 / 알림</div>
-        <div class="scbLiMain_top">
-            <div class="scbNum">번호</div>
-            <span>|</span>
-            <div class="scbNick">닉네임</div>
-            <span>|</span>
-            <div class="scbNew">최근 게시물</div>
-            <span>|</span>
-            <div class="scbAlarm">알림 설정</div>
-            <span>|</span>
-            <div class="scb">구독</div>
-        </div>
-        <div class="scbLiMain_med">
-            <div class="item item1">
-                <div class="scbNum">1</div>
-                <div class="scbNick">닉네임</div>
-                <div class="scbNew">최근 게시물</div>
-                <div class="scbAlarm"><i class="fas fa-bell"></i></div>
-                <button class="scbDelete" type="button" >구독 취소</button>
-            </div>
-            <div class="item item2">
-                <div class="scbNum">2</div>
-                <div class="scbNick">닉네임</div>
-                <div class="scbNew">최근 게시물</div>
-                <div class="scbAlarm"><i class="fas fa-bell"></i></div>
-                <button class="scbDelete" type="button" >구독 취소</button>
-            </div>
-            <div class="item item3">
-                <div class="scbNum">3</div>
-                <div class="scbNick">닉네임</div>
-                <div class="scbNew">최근 게시물</div>
-                <div class="scbAlarm"><i class="fas fa-bell"></i></div>
-                <button class="scbDelete" type="button" >구독 취소</button>
-            </div>
-            <div class="item item4">
-                <div class="scbNum">4</div>
-                <div class="scbNick">닉네임</div>
-                <div class="scbNew">최근 게시물</div>
-                <div class="scbAlarm"><i class="far fa-bell"></i></div>
-                <button class="scbDelete" type="button" >구독 취소</button>
-            </div>
-            <div class="item item5">
-                <div class="scbNum">5</div>
-                <div class="scbNick">닉네임</div>
-                <div class="scbNew">최근 게시물</div>
-                <div class="scbAlarm"><i class="far fa-bell"></i></div>
-                <button class="scbDelete" type="button" >구독 취소</button>
-            </div>
-            <div class="item item6">
-                <div class="scbNum">6</div>
-                <div class="scbNick">닉네임</div>
-                <div class="scbNew">최근 게시물</div>
-                <div class="scbAlarm"><i class="far fa-bell"></i></div>
-                <button class="scbDelete" type="button" >구독 취소</button>
-            </div>
-            <div class="item item7">
-                <div class="scbNum">7</div>
-                <div class="scbNick">닉네임</div>
-                <div class="scbNew">최근 게시물</div>
-                <div class="scbAlarm"><i class="far fa-bell"></i></div>
-                <button class="scbDelete" type="button" >구독 취소</button>
-            </div>
-        </div>
-        <div class="pageNav">
-            <a href="#"><i class="fas fa-backward"></i></a>
-            <ul>
-                <li class="pageNum"><a href="#">1</a></li>
+    <header>
+        <!-- 로고 -->
+        <div class="logo"><img src="/logo.jpg" alt="" width="150px" height="100px"></div>
+        <!-- 상단 메뉴 -->
+        <nav>
+            <ul class="menu">
+                <li>분야별 레시피</li>
+                <li>|</li>
+                <li>테마별 레시피</li>
+                <li>|</li>
+                <li>사진 팁</li>
+                <li>|</li>
+                <li>홈베이킹 클래스</li>
+                <li>|</li>
+                <li>Q&A</li>
+                <li>|</li>
+                <li>자유게시판</li>
             </ul>
-            <a href="#"><i class="fas fa-forward"></i></a>
+        </nav>
+        <!-- 우측상단 아이콘 -->
+        <div class="icon">
+            <ul class="icon_ul">
+                <li ><a href="#" class="searchBtn"><i class="fas fa-search"></i></a></li>
+                <li><i class="far fa-user"></i></li>
+                <li><i class="fas fa-bars"></i></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 검색창 -->
+    <div class="container_search">
+        <div class="search">
+            <input class="search textbox" type="text" placeholder="검색어를 입력하세요.">
+            <button class="search button">검색</button>
         </div>
     </div>
-</main>
 
-<!-- 하단 -->
-<footer>
-    <ul class="menu">
-        <li>HOME CA:BE 운영팀:a@kh.com</li>
-        <li>|</li>
-        <li>이용약관</li>
-        <li>|</li>
-        <li>개인정보취급방침</li>
-    </ul>
-</footer>
+    <main>
+        <!-- 왼쪽 카테고리 -->
+        <div id="leftCategory">
+            <div id="leftCategory_title">마이 페이지</div>
+            <ul class="leftCategory_ul">
+                <li class="leftCategory_li"><a href="" class="leftLi_a" id="subscribeList">구독 / 알림</a></li>
+                <li class="leftCategory_li"><a href="" class="leftLi_a" id="likeList">관심리스트</a></li>
+                <li class="leftCategory_li"><a href="" class="leftLi_a" id="reportList">신고 내역</a></li>
+                <li class="leftCategory_li"><a href="" class="leftLi_a" id="postingList">게시물 / 댓글</a></li>
+            </ul>
+        </div>
+        <!-- 본문 -->
+        <div class="liLiWrap">
+            <div class="liLiMenu">관심리스트</div>
+            <div class="liLiItems">
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src=" " alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="post">
+                        <div class="img"><img class="snowman" src="/snowman.jpg" alt=""></div>
+                        <div class="caption">
+                            <div class="postTitle">제목</div>
+                            <div class="bookmark"><i class="fas fa-heart"></i></div>
+                        </div>
+                            <div class="info">
+                                <span class="memId">By "회원명"</span>
+                                <span class="uploadTime">(업로드 날짜)</span>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pageNav">
+                <a href="#"><i class="fas fa-backward"></i></a>
+                <ul>
+                    <li class="pageNum"><a href="#">1</a></li>
+                </ul>
+                <a href="#"><i class="fas fa-forward"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 하단 -->
+    <footer>
+        <ul class="menu">
+            <li>개인정보취급방침</li>
+            <li>|</li>
+            <li>회원약관</li>
+            <li>|</li>
+            <li>공정위확인</li>
+            <li>|</li>
+            <li>쇼핑몰 고객센터</li>
+            <li>|</li>
+            <li>000-111-2222</li>
+        </ul>
+    </footer>
 </body>
 </html>
