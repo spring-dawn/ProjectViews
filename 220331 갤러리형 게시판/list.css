@@ -208,13 +208,15 @@ main img{
     font-weight: bold;
 }
 .bookmark {
+    width: 17px;
     margin-right: 10px;
     text-align: center;
 }
+/* 관심리스트 추가 버튼을 아이콘 모양을 살려 만들어야 하는데 일단 스킵 */
+.caption button { padding: 0; border: none; width: inherit;}
 .fa-heart{ 
     color: red;
 }
-
 .info {
     display: flex;
     justify-content: space-evenly;
@@ -229,17 +231,7 @@ main img{
     text-align: center;
 }
 
-  /* 게시판 하단 */
-  #page_navi {
-      margin: auto;
-      margin-top: 30px;
-      width: 100%;
-  
-      display: flex;
-      flex-direction: column;
-  }
-  
-  /* 페이징 */
+  /* 게시판 하단 페이징 */
 .bbs-page{
     display: flex;
     justify-content: center;
