@@ -207,16 +207,19 @@ main img{
 .postTitle {
     font-weight: bold;
 }
-.bookmark {
-    width: 17px;
+
+/* 관심리스트 설정/해제 체크박스 꾸미기  */
+.bookmark-container {
     margin-right: 10px;
     text-align: center;
 }
-/* 관심리스트 추가 버튼을 아이콘 모양을 살려 만들어야 하는데 일단 스킵 */
-.caption button { padding: 0; border: none; width: inherit;}
-.fa-heart{ 
-    color: red;
-}
+input[type="checkbox"], .checked{display: none;}
+input[type="checkbox"]:checked~.checked{display: inline-block;}
+input[type="checkbox"]:checked~.unchecked{display: none;}
+
+.checked{color: red;}
+/* end */
+
 .info {
     display: flex;
     justify-content: space-evenly;
