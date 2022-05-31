@@ -5,7 +5,6 @@ const bar = document.getElementById('bar');
 const pie = document.getElementById('pie');
 const line = document.getElementById('line');
 
-
 // 페이지 최초 로드. 이거 자바스크립트로도 있지 싶은데. 
 $(document).ready(function () {
     // 차트 데이터 최신 날짜로 렌더링, 날짜 셀렉트박스 데이터
@@ -45,15 +44,9 @@ function setDateBox() {
     }
 }
 
-// 차트 그리기
+// 최초 로드 차트 그리기
 function firtsChart_f() {
     // 1) bar 
-    const config = {
-        type: 'bar',
-        data,
-        options: {}
-    };
-
     const labels = [
         'January',
         'February',
@@ -72,10 +65,13 @@ function firtsChart_f() {
         }]
     };
 
-    var myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
+    const config = {
+        type: 'bar',
+        data,
+        options: {}
+    };
+
+    let myChart = new Chart(bar, config);
 }
 
 
