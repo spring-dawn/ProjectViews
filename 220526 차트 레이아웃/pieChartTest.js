@@ -20,5 +20,18 @@ pieChart = new Chart(pie, {
             ],
             hoverOffset: 4
         }]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Custom Chart Title',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            }
+        }
     }
+    
 });

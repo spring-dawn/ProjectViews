@@ -27,7 +27,6 @@ let barChart;
 window.onload = function () {
     setDateBox();
     firstChart_f();
-    // year_f();
 }
 
 // select box 연도 , 월 표시
@@ -36,8 +35,8 @@ function setDateBox() {
     // option: selected 디폴트. 오늘 날짜로 기본값 설정하고 로딩시켜야 한다.
     $(".year").append("<option value='selected'>" + com_year +"년"+ "</option>");
 
-    // 올해 기준으로 -10년부터 +1년까지 보여준다.
-    for (var y = (com_year - 10); y <= (com_year + 1); y++) {
+    // 올해 기준으로 -5년부터 +1년까지 보여준다. 기록은 적은데 숫자가 너무 커서; 5로 줄임.
+    for (var y = (com_year - 5); y <= (com_year + 1); y++) {
         $(".year").append("<option value='" + y + "'>" + y + "년" + "</option>");
     }
 
